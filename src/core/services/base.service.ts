@@ -25,11 +25,17 @@ export class BaseService<M extends BaseModel> {
   public save(params: any = {}): Observable<boolean> {
     return Observable
       .from(
-        params.id ? firebase.firestore().collection(this.getApiUrl)
-          .doc(params.id.toString()).set(params).then(() => true) :
+        params.id ?
           firebase.firestore().collection(this.getApiUrl)
-            .add(params).then(() => true)
-      );
+            .doc(params.id.toString()).set(params)
+            .then(() => true)
+            .catch(() => false) :
+          firebase.firestore().collection(this.getApiUrl)
+            .add(params)
+            .then(() => true)
+            .catch(() => false)
+      )
+      .catch((error) => Observable.throwError(error));
   }
 
   public list(params?: any): Observable<M[]> {
@@ -49,7 +55,7 @@ export class BaseService<M extends BaseModel> {
           .then((querySnapshot) => querySnapshot.docs.map((doc) => doc.data()))
       )
       .map((res: any) => res.map((item: any) => this.createModel(item)))
-      .catch(() => Observable.of([]));
+      .catch((error) => Observable.throwError(error));
   }
 
   public createModel(json?: any): M {

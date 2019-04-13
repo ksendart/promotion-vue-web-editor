@@ -60,7 +60,17 @@
     "radix": false,
     "semicolon": [true, "always"],
     "strict-boolean-expressions": false,
-    "trailing-comma": true,
+    "trailing-comma": [
+      true,
+      {
+        "multiline": {
+          "arrays": "always",
+          "objects": "always",
+          "imports": "never"
+        },
+        "singleline": "never"
+      }
+    ],
     "triple-equals": true,
     "variable-name": [
       true,

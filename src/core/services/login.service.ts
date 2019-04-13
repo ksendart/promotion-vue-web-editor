@@ -16,14 +16,13 @@ export class LoginService extends BaseService<UserModel> {
 
   public login(login: string, password: string): Observable<UserModel> {
     const loginSubject = new ReplaySubject<UserModel>(1);
-    firebase.auth().signInWithEmailAndPassword(login, password).then(
-      (userCredential: any) => {
+    firebase.auth().signInWithEmailAndPassword(login, password)
+      .then((userCredential: any) => {
         this._user = new UserModel(userCredential.user);
         this._loggedIn.next(userCredential.user.uid);
         loginSubject.next(this._user);
-      },
-      () => loginSubject.next(null)
-    );
+      })
+      .catch(() => loginSubject.next(null));
 
     return loginSubject.asObservable();
   }
@@ -31,11 +30,16 @@ export class LoginService extends BaseService<UserModel> {
   public changeUsername(username: string): Observable<UserModel> {
     const currentUser = firebase.auth().currentUser;
 
-    return Observable.fromPromise(currentUser.updateProfile({
-      displayName: username,
-      photoURL: null
-    }).then(() => new UserModel(currentUser)))
-      .do((user: UserModel) => (this._user = user));
+    return Observable
+      .from(currentUser.updateProfile({
+        displayName: username,
+        photoURL: null,
+      })
+        .then(() => new UserModel(currentUser))
+        .catch((error) => error)
+    )
+      .do((user: UserModel) => (this._user = user))
+      .catch((error) => Observable.throwError(error));
   }
 
   public logout(): Observable<boolean> {
