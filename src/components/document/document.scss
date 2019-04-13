@@ -1,0 +1,18 @@
+.content {
+  display: flex;
+  flex-direction: row;
+
+  .document-view {
+    display: flex;
+    border-right: 2px #17a2b8 solid;
+    flex-direction: column;
+  }
+
+  .chat-view {
+    display: flex;
+  }
+}
+.container {
+  margin: 15px 0;
+}
+

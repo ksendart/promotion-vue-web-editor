@@ -1,0 +1,36 @@
+.message {
+  display: flex;
+  padding: 10px;
+
+  &.user {
+    justify-content: flex-end;
+  }
+
+  & .author {
+    margin-right: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    padding: 9px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+
+    &.user {
+      background-color: #a2cfff;
+    }
+  }
+
+  & .content {
+    background-color: #c7e2ff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 15px;
+
+    &.user {
+      background-color: #f5faff;
+    }
+  }
+}
