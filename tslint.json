@@ -110,7 +110,7 @@
     "no-switch-case-fall-through": true,
     "no-use-before-declare": true,
     "no-var-keyword": true,
-    "deprecation": true,
+    "deprecation": false,
     "no-duplicate-imports": true,
     "no-submodule-imports": false,
     "no-implicit-dependencies": false,

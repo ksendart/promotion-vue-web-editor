@@ -18,26 +18,26 @@ const successMessage: NotificationOptions = {
   title: 'Success',
   text: 'Saved!',
   type: 'success',
-  group: 'saving'
+  group: 'saving',
 };
 const infoMessage: NotificationOptions = {
   title: 'Info',
   text: 'Saving...',
   type: 'info',
-  group: 'saving'
+  group: 'saving',
 };
 const failMessage: NotificationOptions = {
   title: 'Fail',
   text: 'Not Saved!!',
   type: 'fail',
-  group: 'saving'
+  group: 'saving',
 };
 
 @Component({
   components: {
     chat: ChatComponent,
-    'document-form': DocumentFormComponent
-  }
+    'document-form': DocumentFormComponent,
+  },
 })
 export default class DocumentComponent extends Vue {
   @Provide() public loginService: LoginService = loginServiceInstance;
@@ -48,7 +48,7 @@ export default class DocumentComponent extends Vue {
   public documentId: number;
   public document: DocumentModel = new DocumentModel({
     content: '',
-    title: ''
+    title: '',
   });
   private _user: UserModel;
 

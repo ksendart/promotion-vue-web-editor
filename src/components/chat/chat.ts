@@ -16,8 +16,8 @@ import { Observable, Subject } from 'rxjs';
 @Component({
   components: {
     message: MessageComponent,
-    'message-form': MessageFormComponent
-  }
+    'message-form': MessageFormComponent,
+  },
 })
 export default class ChatComponent extends Vue {
   @Provide() public loginService: LoginService = loginServiceInstance;

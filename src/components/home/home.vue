@@ -7,6 +7,7 @@
 
     </b-navbar>
     <router-view></router-view>
+    <notifications group="saving" position="bottom left"></notifications>
   </div>
 </template>
 <script src="./home.ts" lang="ts"></script>

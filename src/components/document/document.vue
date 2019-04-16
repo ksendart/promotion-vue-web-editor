@@ -10,7 +10,6 @@
         <h4>Document #{{documentId}}</h4>
       </b-container>
       <b-container>
-        <notifications group="saving" position="bottom left"></notifications>
         <document-form v-if="documentId" :document="document" v-on:saveDocument="saveDocument($event)">
         </document-form>
       </b-container>

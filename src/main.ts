@@ -22,7 +22,7 @@ const config = {
   databaseURL: 'https://vue-web-editor-c8a83.firebaseio.com',
   messagingSenderId: '1051590386557',
   projectId: 'vue-web-editor-c8a83',
-  storageBucket: 'vue-web-editor-c8a83.appspot.com'
+  storageBucket: 'vue-web-editor-c8a83.appspot.com',
 };
 export const app = firebase.initializeApp(config);
 export const db = app.firestore();

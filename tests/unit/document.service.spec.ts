@@ -6,7 +6,7 @@ describe('DocumentService', () => {
   let service: DocumentService;
   const mock1: DocumentModel = new DocumentModel({id: 1, text: 'text'});
   const mock2: DocumentModel = new DocumentModel({
-    id: 1, text: 'text', lastChangesAuthor: 1, lastChangesDate: new Date(),
+    id: 1, lastChangesAuthor: 1, lastChangesDate: new Date(), text: 'text',
   });
 
   beforeEach(() => {
