@@ -18,19 +18,19 @@ const successMessage: NotificationOptions = {
   title: 'Success',
   text: 'Saved!',
   type: 'success',
-  group: 'saving',
+  group: 'main',
 };
 const infoMessage: NotificationOptions = {
   title: 'Info',
   text: 'Saving...',
   type: 'info',
-  group: 'saving',
+  group: 'main',
 };
 const failMessage: NotificationOptions = {
   title: 'Fail',
   text: 'Not Saved!!',
   type: 'fail',
-  group: 'saving',
+  group: 'main',
 };
 
 @Component({

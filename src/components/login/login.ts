@@ -28,7 +28,7 @@ export default class LoginComponent extends Vue {
           this.user = user;
           this.$router.go(-1);
         } else {
-          this.text = 'Incorrect login. Try "ksendart@yandex.ru" and "password1"';
+          this.text = 'Incorrect credentials. Try "ksendart@yandex.ru" and "password1"';
         }
       });
     } else {

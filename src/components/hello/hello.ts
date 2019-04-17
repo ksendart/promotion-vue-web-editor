@@ -4,11 +4,19 @@ import {
   documentServiceInstance,
   loginServiceInstance
 } from '@/core/services/constants';
+import { NotificationOptions } from 'vue-notification';
 import { Provide } from 'vue-property-decorator';
 import { LoginService } from '@/core/services/login.service';
 import { UserModel } from '@/core/models/user.model';
 import { DocumentService } from '@/core/services/document.service';
 import { DocumentModel } from '@/core/models/document.model';
+
+const failMessage: NotificationOptions = {
+  title: 'Fail',
+  text: 'Not Changed!!',
+  type: 'fail',
+  group: 'main',
+};
 
 @Component({})
 export default class HelloComponent extends Vue {
@@ -30,9 +38,13 @@ export default class HelloComponent extends Vue {
   }
 
   public changeUsername() {
-    this.loginService.changeUsername(this.username).subscribe(() => {
-      this.user = this.loginService.user;
-    });
+    this.loginService.changeUsername(this.username)
+      .subscribe(
+        () => {
+          this.user = this.loginService.user;
+        },
+        (error) => this.$notify({ ...failMessage, text: error.message })
+      );
   }
 
   public logOut() {
@@ -43,8 +55,12 @@ export default class HelloComponent extends Vue {
   }
 
   public getDocumentList() {
-    this.documentService.list().subscribe((documents) => {
-      this.documents = documents;
-    });
+    this.documentService.list()
+      .subscribe(
+        (documents) => {
+          this.documents = documents;
+        },
+        (error) => this.$notify({ ...failMessage, text: error.message })
+      );
   }
 }
