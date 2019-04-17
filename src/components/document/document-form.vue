@@ -15,13 +15,9 @@
       <b-form-group id="textGroup"
                     label="Document Text"
                     label-for=text>
-        <b-form-textarea id="docText"
-                         v-model="document.content"
-                         v-on:input="submit()"
-                         required
-                         :rows="3"
-                         placeholder="Enter text">
-        </b-form-textarea>
+        <vue-editor v-model="document.content"
+                    v-on:input="submit()">
+        </vue-editor>
       </b-form-group>
     </b-form>
   </div>

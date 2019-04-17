@@ -1,6 +1,6 @@
 <template>
   <div class="message" v-bind:class="{ user: isUserAuthor }">
-    <span v-if="!isUserAuthor" class="author">{{message.authorId}}</span>
+    <span v-if="!isUserAuthor" class="author">{{message.author}}</span>
     <div class="content" v-bind:class="{ user: isUserAuthor }">{{message.text}}</div>
   </div>
 </template>

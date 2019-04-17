@@ -8,7 +8,7 @@ export class MessageService extends BaseService<MessageModel> {
   public serviceEndpoint: string = 'messages';
 
   public getMessages(documentId: number): Observable<MessageModel[]> {
-    return this.list({ documentId });
+    return this.list({ documentId }, { date: 'asc' });
   }
 
   public saveMessage(message: MessageModel): Observable<boolean> {

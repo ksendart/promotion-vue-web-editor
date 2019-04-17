@@ -14,4 +14,8 @@ export class MessageModel extends BaseModel implements IMessage {
   public authorId: number;
   public text: string;
   public date: Date;
+
+  public get author(): string {
+    return this.authorId.toString().slice(0, 2).toUpperCase();
+  }
 }

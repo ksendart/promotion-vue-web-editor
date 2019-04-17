@@ -1,11 +1,16 @@
 import Vue from 'vue';
 
+import { VueEditor } from 'vue2-editor';
 import Component from 'vue-class-component';
 import { Prop as prop } from 'vue-property-decorator';
 import { DocumentModel } from '@/core/models/document.model';
 import { UserModel } from '@/core/models/user.model';
 
-@Component({})
+@Component({
+  components: {
+    VueEditor,
+  },
+})
 export default class DocumentFormComponent extends Vue {
   @prop(UserModel) public user: UserModel;
   @prop(DocumentModel) public document: DocumentModel;

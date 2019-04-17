@@ -38,13 +38,19 @@ export class BaseService<M extends BaseModel> {
       .catch((error) => Observable.throwError(error));
   }
 
-  public list(params?: any): Observable<M[]> {
+  public list(params?: any, sort?: any): Observable<M[]> {
     const collection = firebase.firestore().collection(this.getApiUrl);
     let query;
 
     if (params) {
       Object.keys(params).forEach((key: string) => {
-        query = collection.where(key, '==', params[key]);
+        query = (query || collection).where(key, '==', params[key]);
+      });
+    }
+
+    if (sort) {
+      Object.keys(sort).forEach((key: string) => {
+        query = (query || collection).orderBy(key, sort[key]);
       });
     }
 
