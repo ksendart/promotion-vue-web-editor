@@ -1,0 +1,23 @@
+language: node_js
+node_js:
+  - "8.6.0"
+branches:
+  only:
+    - master
+stages:
+  - lint
+  - test
+  - build
+jobs:
+  include:
+    - stage: lint
+      script:
+        # Run linter
+        - npm run lint
+    - stage: test
+      script: 
+        - npm run test:unit
+    - stage: build
+      script:
+        # Build all
+        - npm run build
