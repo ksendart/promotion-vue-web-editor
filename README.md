@@ -25,10 +25,13 @@ npm run test
 npm run lint
 ```
 
-### Run unit tests
+
+### Puplines and build
 ```
-npm run test:unit
+please see https://travis-ci.org/github/ksendart/web-editor
 ```
+
+
 
 ### Main Information
 Vue Web Editor is a VueCLI-based application that was created for job promotion.
