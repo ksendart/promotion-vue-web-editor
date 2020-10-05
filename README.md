@@ -26,7 +26,7 @@ npm run lint
 ```
 
 
-### Puplines and build
+### Pipelines and build
 ```
 please see https://travis-ci.org/github/ksendart/web-editor
 ```
